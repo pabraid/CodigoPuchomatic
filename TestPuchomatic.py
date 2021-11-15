@@ -5,30 +5,34 @@ GPIO.setmode(GPIO.BOARD)
 # CODIGO PARA CONTROL DE MOTOR CON 1 SENSOR HALL
 STOP = 0
 MOVING = 1
+START_MOVING = 2 
 GPIO.setup(12,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 GPIO.setup(5,GPIO.OUT)
-motor_position = MOVING
+motor_position = STOP
 command = 'S'
 while  True:
-    
     hall_1_state = GPIO.input(12)
-    
-    if(motor_position == MOVING):
+    print(hall_1_state)
+
+    if(motor_position == START_MOVING):
         GPIO.output(5,GPIO.LOW)
-        print('moving')
+        print('empezando a mover')
         command = 'S'
-        
-    if not hall_1_state:
+    if hall_1_state and motor_position == START_MOVING:
+        motor_position = MOVING
+        print('moviendose')
+    elif not hall_1_state and motor_position == MOVING:
         motor_position = STOP
         GPIO.output(5,GPIO.HIGH)
         print('stopped')
 
+    if motor_position == STOP:
         print('Ingresar comando')
-        command = input()
+        command = raw_input()
     
 #       
     if command == 'M':
-        motor_position = MOVING
+        motor_position = START_MOVING
 #     else:
 #         motor_position = MOVING
 #         
@@ -46,6 +50,6 @@ while  True:
 #         motor_position = STOP
 #         print('MOTOR COMPLETE')
 #          
-    sleep(0.05)
+#    sleep(0.05)
     
     
