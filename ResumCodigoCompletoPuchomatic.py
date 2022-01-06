@@ -36,7 +36,6 @@ MAX_DISPATCH = 5
 
 #################### GLOBALES DE MANEJO NDE MOTOR ###################
 global motor_position
-global dispatch_count_1,dispatch_count_2,dispatch_count_3,dispatch_count_4,dispatch_count_5,dispatch_count_6
 global dispatch_count
 global Timer
 global FinVuelta
@@ -118,7 +117,7 @@ def MoveMotor(num,cant):
 
 ############ FUNCION DE DESPACHO DE ATADOS, RECIBE COMO ARGUMENTO LA COLUMNA PARA DESPACHAR Y LA CANTIDAD A DESPACHAR
 def Dispatch(cant,num_column):
-    global dispatch_count #aca llevo la cuenta de cuantos despache
+    global dispatch_count # aca llevo la cuenta de cuantos despache
     global motor_position,MAX_DISPATCH
     global ErrorMotor
     dispatch_count[num_column-1] = 0
@@ -167,4 +166,3 @@ while  True:
     command = raw_input()    
     print(int(command))
     Dispatch(int(command),1)
-#sleep(1)
