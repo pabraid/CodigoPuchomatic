@@ -49,7 +49,6 @@ ContarTiempo = [False,False,False,False,False,False]
 ErrorMotor = [False,False,False,False,False,False] 
 FinVuelta = [False,False,False,False,False,False]
 motor_position = STOP
-dispatch_count_1 = 0
 dispatch_count= [0,0,0,0,0,0]
 ###### INFORMO SENSOR TOP OBS (0) -> HAY 5 ATADOS
 ###### INFORMO SENSOR TOP NO OBS (1) -> HAY MENOS DE 5 ATADOS
