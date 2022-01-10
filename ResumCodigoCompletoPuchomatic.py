@@ -98,7 +98,7 @@ def MoveMotor(num,cant):
         ContarTiempo[num-1] = True
         if timer_flag == False:
             timer_flag = True
-            Timer = th.Timer(5,checkMotorStatus(num))
+            Timer = th.Timer(5,checkMotorStatus,args=[num])
             Timer.start()
             
     elif not hall_1_state and motor_position == MOVING:
@@ -152,7 +152,7 @@ def checkMotorError(motor_number):
     global ErrorMotor
     return ErrorMotor[motor_number-1]
 
-Timer = th.Timer(5,checkMotorStatus(1))
+Timer = th.Timer(5,checkMotorStatus,args=[TOTAL_MOTORS])
             
 while  True:
     
