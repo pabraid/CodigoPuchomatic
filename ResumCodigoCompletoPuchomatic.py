@@ -158,10 +158,10 @@ while  True:
     
     for i in range (TOTAL_MOTORS):
         GPIO.output(MOTORS[i],GPIO.HIGH)
-        sens_bot = GPIO.input(SENSORS_BOT[TOTAL_MOTORS])
-        print("SENSOR BOT"+ str(TOTAL_MOTORS) + " =" + str(sens_bot))
-        sens_top = GPIO.input(SENSORS_TOP[TOTAL_MOTORS])
-        print("SENSOR TOP" + str(TOTAL_MOTORS) + "=" + str(sens_top))
+        sens_bot = GPIO.input(SENSORS_BOT[i])
+        print("SENSOR BOT"+ str(i+1) + " =" + str(sens_bot))
+        sens_top = GPIO.input(SENSORS_TOP[i])
+        print("SENSOR TOP" + str(i+1) + "=" + str(sens_top))
     
     print("INGRESAR CANTIDAD DE PAQUETES")
     command = raw_input()    
