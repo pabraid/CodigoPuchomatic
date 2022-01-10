@@ -124,16 +124,16 @@ def Dispatch(cant,num_column):
     ErrorMotor[num_column-1] = False
     #### motor 1
     if is_bot_obs(num_column) == 0:
-        if( is_top_obs(1) == 0 and cant > MAX_DISPATCH ):
+        if( is_top_obs(num_column) == 0 and cant > MAX_DISPATCH ):
             cant = MAX_DISPATCH 
-        elif( is_top_obs(1) == 1 and cant > 1 ):
+        elif( is_top_obs(num_column) == 1 and cant > 1 ):
             cant = 1 
         motor_position = START_MOVING
         while dispatch_count[num_column-1] < cant and ErrorMotor[num_column-1] == False:
             MoveMotor(MOTORS[num_column-1],cant)
     
 ############ FUNCION PARA TIMEOUT
-def checkMotorStatus(motor_number):
+def checkMotorStatus(motors):
     global FinVuelta
     global ErrorMotor
     global Timer
@@ -142,10 +142,11 @@ def checkMotorStatus(motor_number):
     global timer_flag
     timer_flag = False
 
-    if(ContarTiempo[motor_number-1] == True):
-        ContarTiempo[motor_number-1] = False
-        ErrorMotor[motor_number-1] = True
-        StopMotor(motor_number)
+    for i in range (motors):
+        if(ContarTiempo[i-1] == True):
+            ContarTiempo[i-1] = False
+            ErrorMotor[i-1] = True
+            StopMotor(i)
     
 def checkMotorError(motor_number):
     global ErrorMotor
