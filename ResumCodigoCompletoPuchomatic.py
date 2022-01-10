@@ -54,18 +54,18 @@ dispatch_count= [0,0,0,0,0,0]
 
 ############ FUNCION PARA OBTENCION DE ESTADOS DE SENSOR SUPERIOR ( 5 ATADOS)
 def is_top_obs(num):
-        return GPIO.input(SENSORS_TOP[num-1])
+    return GPIO.input(SENSORS_TOP[num-1])
         
     
 ###### INFORMO SENSOR BOT OBS (0)-> HAY AL MENOS 1 ATADO
 ###### INFORMO SENSOR BOT NO OBS (1)-> NO HAY ATADOS
     ############ FUNCION PARA OBTENCION DE ESTADOS DE SENSOR SUPERIOR ( 1 ATADO)
 def is_bot_obs(num):
-        return GPIO.input(SENSORS_BOT[num-1])
+    return GPIO.input(SENSORS_BOT[num-1])
     
 ############ FUNCION PARA FRENO DE MOTOR
 def StopMotor(num):
-        GPIO.output(MOTORS[num-1],GPIO.HIGH)
+    GPIO.output(MOTORS[num-1],GPIO.HIGH)
 
 ############ FUNCION PARA MOVER EL MOTOR DE CADA COLUMNA
 def MoveMotor(num,cant):
